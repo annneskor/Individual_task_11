@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+    setlocale(LC_ALL, "");
+    int arr[7];
+    int sum = 0, count = 0;
+
+    printf("Введите 7 целых чисел (положительных и отрицательных):\n");
+
+    for (int i = 0; i < 7; i++) {
+        printf("Элемент %d: ", i + 1);
+        scanf("%d", &arr[i]);
+    }
+
+    // Вычисление среднего значения элементов с четными индексами (кроме нулевого)
+    for (int i = 2; i < 7; i += 2) {
+        sum += arr[i];
+        count++;
+    }
+
+    printf("\nВведенный массив: ");
+    for (int i = 0; i < 7; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    printf("\nЭлементы с четными индексами (кроме 0-го): ");
+    for (int i = 2; i < 7; i += 2) {
+        printf("%d ", arr[i]);
+    }
+
+    if (count > 0) {
+        double average = (double)sum / count;
+        printf("\nСреднее значение: %.2f\n", average);
+    }
+    else {
+        printf("\nНет элементов для вычисления среднего значения.\n");
+    }
+
+    return 0;
+}
